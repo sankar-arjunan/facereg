@@ -58,7 +58,7 @@ const CameraCapture = ({ type, setType, url }) => {
         }
       });
       
-      if (response.status == 200 ) {
+      if (response.status === 200 ) {
         setAuthResult(response.data);
       } else {
         const errorMessage = response.data?.error || 'An error occurred while authenticating the face.';
@@ -67,7 +67,7 @@ const CameraCapture = ({ type, setType, url }) => {
     } catch (error) {
       if (error.response) {
         const errorMessage = error.response.data?.error || 'An error occurred while authenticating the face.';
-        if(errorMessage=="Attendace already marked"){ setType("");}
+        if(errorMessage==="Attendace already marked"){ setType("");}
         alert(errorMessage);
       } else if (error.request) {
         alert('No response received from the server.');
@@ -106,7 +106,7 @@ const CameraCapture = ({ type, setType, url }) => {
     }
 
     return () => clearInterval(interval);
-  }, [type, image]);
+  }, [type, image, checkFaceDetection]);
 
   const dataURLtoFile = (dataURL, filename) => {
     const [header, data] = dataURL.split(',');
