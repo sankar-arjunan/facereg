@@ -150,7 +150,7 @@ const CameraCapture = ({ type, setType, url }) => {
         screenshotFormat="image/jpeg"
         width={360} 
         height={360} 
-        style={{ padding: '24px' }}
+        style={{  transform: 'scaleX(-1)', padding: '24px' }}
       />}
       {!image && !authResult && <div style={{padding:"0 24px 24px 24px"}}>
                 <h2 style={{textAlign:"center"}}>Face Detection Quality:</h2>
